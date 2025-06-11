@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    padding-top: 80px;
+    background-color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #FFFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo img {
+    width: 200px;
+    height: 60px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: #C419BE;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
+    color: #2628DD;
+}
+
+.title {
+    text-align: center;
+    color: #2628DD;
+    font-size: 2rem;
+}
+
+/* Estilos adicionales */
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #C419BE;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: #C419BE;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+/* Estilos específicos para equipo */
+.team-hero {
+    padding: 4rem 5%;
+    background: linear-gradient(45deg, #C419BE 30%, #2628DD 100%);
+    color: white;
+    text-align: center;
+    animation: fadeIn 1.5s;
+}
+
+.team-section {
+    padding: 4rem 5%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.team-banner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 1s ease;
+    margin-bottom: 3rem;
+}
+
+.team-banner.animated {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.team-photo {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    position: relative;
+}
+
+.team-photo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2628DD22, #C419BE33);
+    mix-blend-mode: multiply;
+}
+
+.team-description {
+    text-align: center;
+    max-width: 800px;
+    margin: -80px auto 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes teamGlow {
+    0% {
+        box-shadow: 0 0 30px rgba(38, 40, 221, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(196, 25, 190, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 30px rgba(38, 40, 221, 0.3);
+    }
+}
+
+.team-banner:hover {
+    animation: teamGlow 2s infinite;
+}
+
+.team-scroll-effect {
+    transform: translateY(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* Compartidos */
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Sección Contacto */
+.contact-section .section-header {
+    background: #2628DD;
+    padding: 4rem 5%;
+    text-align: center;
+    color: #FFFF;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem 5%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #C419BE;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #FFFF;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #C419BE;
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    color: #FFFF;
+    padding: 4rem 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.Footer-About {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Footer-Services {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Footer-Blog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form button.cta-button {
+        width: 100%;
+    }
+
+    .info-item p {
+        font-size: 0.9rem;
+    }
+
+    .g-recaptcha {
+        transform: scale(0.9);
+        transform-origin: left;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 5%;
+    }
+
+    .contact-section .section-header {
+        padding: 2rem 5%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        text-align: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .social-icons-contact {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .social-icons-contact a {
+        font-size: 1.5rem;
+    }
+    
+}
