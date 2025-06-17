@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo - Solutions MN</title>
+    <link rel="stylesheet" href="team.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="logo4.png" alt=""></a></div>
+        <nav class="nav-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-nosotros">Sobre Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#blog">Blog</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="team-hero">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Nuestro Equipo de Expertos</h1>
+        <p style="font-size: 1.2rem;">Más de 7 años combinados de experiencia en transformación digital</p>
+    </section>
+
+    <section id="equipo" class="team-section">
+        <div class="team-banner">
+            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="Equipo nSolutions MN" class="team-photo">
+        </div>
+
+        <div class="team-description animate-on-scroll">
+            <h2>Nuestro Equipo Unificado</h2>
+            <p style="color: grey; font-size: 1.1rem; margin-top: 1rem;">
+                Somos una sinergia de talentos donde cada miembro aporta su expertise único. Desde desarrolladores
+                full-stack hasta arquitectos cloud, diseñadores UX/UI y especialistas en IA, formamos un ecosistema
+                interconectado que trabaja en perfecta sincronía.
+            </p>
+            <p style="color: #C419BE; margin-top: 1rem;">
+                Más que colegas, somos apasionados de la tecnología unidos por un objetivo común:
+                llevar tu empresa al siguiente nivel digital.
+            </p>
+        </div>
+    </section>
+    <!-- Sección Contacto -->
+
+    <section id="contacto" class="contact-section scroll-animation">
+        <div class="section-header">
+            <h2>Contacto</h2>
+            <p>Estamos listos para escuchar tus necesidades</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-form">
+                <form id="form-contacto">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+                    </div>
+                    <!-- Agrega el CAPTCHA -->
+                    <div class="g-recaptcha" data-sitekey="6LcSd-EqAAAAADEoa8oej9DVHB9hdTs1W5FobMbQ"></div>
+                    <button type="submit" class="cta-button">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>contact@solutionsmn.tech</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+54 9 (0351) 726-6538 <br>
+                        +54 9 (0351) 262-3733
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div>
+            <h2>Nuestas redes </h2>
+            <div class="social-icons">
+                <a
+                    href="https://www.facebook.com/people/Solutions-MN/=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15xRn8DPuJ%2F"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/ssolutionsmn/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/solutions-mn/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/@solutionsmn-tech"><i class="fab fa-youtube"></i></a>
+
+            </div>
+
+        </div>
+        <div class="Footer-About">
+            <h2>Sobre Solutions MN</h2>
+            <a href="#sobre-nosotros">Quienes Somos</a>
+            <a href="team.html">Equipo</a>
+            <a href="vision.html">Visión y Misión</a>
+        </div>
+        <div class="Footer-Services">
+            <h2>IT Services</h2>
+            <a href="tech.html">Desarrollo Web</a>
+            <a href="tech.html">Desarrollo Integral</a>
+            <a href="tech.html">Inteligencia artificial</a>
+        </div>
+        <div class="Footer-Blog">
+            <h2>Blog</h2>
+            <a href="blog.html">Tendencias en Inteligencia Artificial</a>
+            <a href="blog-art2.html">Desarrollo Web para Pequeños Comercios</a>
+        </div>
+    </footer>
+    <script>
+        // Animación de aparición con scroll
+        const teamBanner = document.querySelector('.team-banner');
+
+        const teamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+
+                    // Efecto parallax al hacer scroll
+                    window.addEventListener('scroll', () => {
+                        const scrolled = window.pageYOffset;
+                        const rate = scrolled * 0.1;
+                        entry.target.style.transform = `scale(1) translateY(${rate}px)`;
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        teamObserver.observe(teamBanner);
+
+        // Efecto de movimiento suave al desplazarse
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.team-scroll-effect');
+            elements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const offset = Math.min(window.innerHeight * 0.2, elementTop * 0.3);
+                el.style.transform = `translateY(${offset}px)`;
+            });
+        });
+        document.getElementById('form-contacto').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 🔗 Reemplaza ESTA URL con la de tu script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwIPC6Iq7F5hhAAqWmKm-op1eiK7DdSPSajghnNRW-14HYFwZ0rlom7oD-b9V1uF7zG/exec';
+
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nombre: document.querySelector('[name="nombre"]').value,
+                    email: document.querySelector('[name="email"]').value,
+                    mensaje: document.querySelector('[name="mensaje"]').value
+                })
+            })
+                .then(response => alert('¡Mensaje enviado con éxito!'))
+                .catch(error => alert('Error. Por favor intenta nuevamente.'));
+        });
+    </script>
+</body>
+
+</html>

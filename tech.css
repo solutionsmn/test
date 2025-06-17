@@ -1,0 +1,366 @@
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    padding-top: 80px;
+    background-color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #2628DD;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-header h1 {
+    padding: 3rem 4%;
+    font-size: 1.7rem;
+    text-align: center;
+    color: #2628DD;
+}
+
+.section-header p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.logo {
+    color: #FFFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.logo img {
+    width: 200px;
+    height: 60px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: #C419BE;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
+    color: #2628DD;
+}
+
+/* Nuevos estilos para tecnologías */
+.tech-hero {
+    padding: 4rem 5%;
+    background: linear-gradient(45deg, #2628DD 30%, #C419BE 100%);
+    color: white;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: -5%;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-wave {
+    background: #fff;
+    padding: 8% 5% 4%;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+}
+
+.tech-category {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s ease;
+}
+
+.tech-category.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tech-category:nth-child(even) {
+    direction: rtl;
+    transform: translateX(50px);
+}
+
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.tech-icon:hover {
+    filter: grayscale(0%);
+    transform: scale(1.2) rotate(15deg);
+}
+
+.tech-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.tech-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #2628DD;
+}
+
+.tech-category:nth-child(even) .tech-title::after {
+    background: #C419BE;
+}
+
+.tech-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.tech-highlight {
+    color: #2628DD;
+    font-weight: 600;
+}
+
+.tech-category:nth-child(even) .tech-highlight {
+    color: #C419BE;
+}
+.tech-icons {
+    grid-template-columns: repeat(4, 1fr); /* Ajuste para 4 íconos */
+}
+
+/* Nuevo efecto especial para IA */
+.ai-pulse {
+    animation: aiPulse 2s infinite;
+}
+
+@keyframes aiPulse {
+    0% { filter: grayscale(100%) brightness(1); }
+    50% { filter: grayscale(0%) brightness(1.2); }
+    100% { filter: grayscale(100%) brightness(1); }
+}
+
+.tech-icon:hover.ai-pulse {
+    animation: none;
+    filter: grayscale(0%) brightness(1);
+}
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Estilos comunes */
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer {
+    background: #2628DD;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+}
+@media (max-width: 1200px) {
+    .tech-category {
+        gap: 2rem;
+        padding: 0 5%;
+    }
+    
+    .tech-title {
+        font-size: 1.8rem;
+    }
+    
+    .tech-description {
+        font-size: 1rem;
+    }
+    
+    .tech-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+@media (max-width: 992px) {
+    .tech-wave {
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+        padding: 12% 5% 8%;
+    }
+    
+    .tech-category {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .tech-category:nth-child(even) {
+        direction: ltr;
+    }
+    
+    .tech-content {
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .tech-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+        order: 2;
+    }
+    
+    .tech-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .tech-icon:hover {
+        transform: scale(1.1);
+        rotate: 0deg;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .tech-wave {
+        clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    .tech-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tech-title::after {
+        width: 40px;
+        height: 3px;
+        bottom: -8px;
+    }
+    
+    .tech-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-wave {
+        clip-path: none;
+        padding: 15% 5% 10%;
+    }
+    
+    .tech-category {
+        margin: 1.5rem auto;
+    }
+    
+    .tech-title {
+        font-size: 1.4rem;
+    }
+    
+    .tech-description {
+        font-size: 0.9rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .tech-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tech-highlight {
+        display: inline-block;
+        margin: 0.2rem 0;
+    }
+}
