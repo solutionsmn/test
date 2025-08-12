@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | Política de Privacidad - Solutions MN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0c0e74;
+            --secondary: #C419BE;
+            --primary-light: #4d4fe0;
+            --secondary-light: #d547d0;
+            --dark: #1a1c5e;
+            --light: #f5f5f7;
+            --gray: #6b6d8c;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            text-decoration: none;
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-dot {
+            color: var(--secondary);
+        }
+
+        /* Main Content */
+        .legal-container {
+            padding: 6rem 0 4rem;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .legal-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .legal-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .tab-btn.active:after,
+        .tab-btn:hover:after {
+            width: 100%;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .legal-section h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
+        }
+
+        .legal-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .legal-section p, .legal-section ul {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .legal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .legal-section li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(38, 41, 221, 0.05), rgba(196, 25, 190, 0.05));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-to-home:hover {
+            color: var(--secondary);
+            transform: translateX(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .footer-col p, .footer-col li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-container {
+                padding: 4rem 0 2rem;
+            }
+            
+            .tab-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 1rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .legal-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="images/logoT.png" alt="">
+            </a>
+        </div>
+    </header>
+
+    <main class="legal-container">
+        <div class="container">
+            <div class="legal-header">
+                <h1>Términos y Condiciones | Política de Privacidad</h1>
+                <p>Por favor, lee detenidamente los siguientes términos y condiciones antes de utilizar nuestros servicios.</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="terms">Términos y Condiciones</button>
+                <button class="tab-btn" data-tab="privacy">Política de Privacidad</button>
+            </div>
+
+            <div id="terms" class="tab-content active">
+                <div class="legal-section">
+                    <h2>Términos y Condiciones de Solutions MN</h2>
+                    <p>Última actualización: 15 de julio de 2025</p>
+                    
+                    <div class="highlight-box">
+                        <p>Al acceder o utilizar nuestros servicios, usted acepta cumplir con estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debería utilizar nuestros servicios.</p>
+                    </div>
+                    
+                    <h3>1. Introducción</h3>
+                    <p>Bienvenido a Solutions MN - Digital Studio. Estos términos y condiciones rigen el uso de nuestro sitio web y servicios. Al acceder o utilizar nuestros servicios, aceptas cumplir con estos términos.</p>
+                    
+                    <h3>2. Propiedad Intelectual</h3>
+                    <p>Todos los derechos de propiedad intelectual del contenido de este sitio web, incluyendo textos, gráficos, logotipos, imágenes, y software, son propiedad de Solutions MN o de sus licenciantes y están protegidos por leyes de propiedad intelectual.</p>
+                    
+                    <h3>3. Uso del Sitio Web</h3>
+                    <p>El uso de este sitio web debe ser exclusivamente para fines lícitos. No está permitido:</p>
+                    <ul>
+                        <li>Utilizar el sitio de manera que cause daño o perjuicio a terceros</li>
+                        <li>Realizar actividades fraudulentas</li>
+                        <li>Violar cualquier ley o regulación aplicable</li>
+                        <li>Acceder a áreas restringidas sin autorización</li>
+                    </ul>
+                    
+                    <h3>4. Servicios</h3>
+                    <p>Solutions MN ofrece servicios de diseño y desarrollo digital. Todos los servicios se prestan según las especificaciones acordadas con el cliente. Nos reservamos el derecho de rechazar cualquier proyecto que consideremos inapropiado o ilegal.</p>
+                    
+                    <h3>5. Pagos y Facturación</h3>
+                    <p>Los pagos se realizarán según lo acordado en la propuesta o contrato. Se requerirá un depósito inicial del 50% para comenzar cualquier proyecto. El saldo restante será pagadero a la entrega final del proyecto.</p>
+                    
+                    <h3>6. Limitación de Responsabilidad</h3>
+                    <p>Solutions MN no será responsable por daños indirectos, incidentales, especiales o consecuentes que resulten del uso o la imposibilidad de uso de nuestros servicios.</p>
+                    
+                    <h3>7. Enlaces a Terceros</h3>
+                    <p>Nuestro sitio web puede contener enlaces a sitios web de terceros. No tenemos control sobre el contenido de estos sitios y no asumimos responsabilidad por ellos.</p>
+                    
+                    <h3>8. Modificaciones</h3>
+                    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
+                    
+                    <h3>9. Ley Aplicable</h3>
+                    <p>Estos términos se regirán e interpretarán de acuerdo con las leyes de Argentina, sin tener en cuenta sus disposiciones sobre conflictos de leyes.</p>
+                    
+                    <h3>10. Contacto</h3>
+                    <p>Para cualquier pregunta sobre estos Términos y Condiciones, contáctenos a través de <a href="mailto:info@solutionsmn.com">info@solutionsmn.com</a>.</p>
+                </div>
+            </div>
+
+            <div id="privacy" class="tab-content">
+                <div class="legal-section">
+                    <h2>Política de Privacidad de Solutions MN</h2>
+                    <p>Última actualización: 15 de julio de 2025</p>
+                    
+                    <div class="highlight-box">
+                        <p>En Solutions MN nos comprometemos a proteger tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.</p>
+                    </div>
+                    
+                    <h3>1. Información Recopilada</h3>
+                    <p>Recopilamos información que nos proporcionas directamente, como tu nombre, dirección de correo electrónico y número de teléfono cuando:</p>
+                    <ul>
+                        <li>Te registras en nuestro sitio</li>
+                        <li>Contactas con nosotros</li>
+                        <li>Suscribes a nuestro boletín</li>
+                        <li>Solicitas nuestros servicios</li>
+                    </ul>
+                    
+                    <h3>2. Uso de la Información</h3>
+                    <p>Utilizamos la información recopilada para:</p>
+                    <ul>
+                        <li>Proporcionar y mejorar nuestros servicios</li>
+                        <li>Responder a tus consultas</li>
+                        <li>Enviar comunicaciones de marketing (con tu consentimiento)</li>
+                        <li>Personalizar tu experiencia en nuestro sitio</li>
+                        <li>Cumplir con obligaciones legales</li>
+                    </ul>
+                    
+                    <h3>3. Cookies y Tecnologías Similares</h3>
+                    <p>Utilizamos cookies para mejorar la experiencia del usuario. Las cookies son pequeños archivos de datos almacenados en tu dispositivo. Puedes gestionar tus preferencias de cookies a través de la configuración de tu navegador.</p>
+                    
+                    <h3>4. Seguridad de Datos</h3>
+                    <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos personales contra pérdida, uso indebido y acceso no autorizado. Sin embargo, ninguna transmisión por Internet o sistema de almacenamiento electrónico es 100% seguro.</p>
+                    
+                    <h3>5. Divulgación a Terceros</h3>
+                    <p>No vendemos ni compartimos tu información personal con terceros, excepto en las siguientes circunstancias:</p>
+                    <ul>
+                        <li>Con proveedores de servicios que nos ayudan en nuestras operaciones (con acuerdos de confidencialidad)</li>
+                        <li>Para cumplir con requisitos legales o responder a solicitudes gubernamentales</li>
+                        <li>Para proteger nuestros derechos o propiedad</li>
+                    </ul>
+                    
+                    <h3>6. Derechos del Usuario</h3>
+                    <p>De acuerdo con el RGPD, tienes derecho a:</p>
+                    <ul>
+                        <li>Acceder a tus datos personales</li>
+                        <li>Solicitar la rectificación de datos inexactos</li>
+                        <li>Solicitar la eliminación de tus datos</li>
+                        <li>Oponerte al procesamiento de tus datos</li>
+                        <li>Solicitar la portabilidad de tus datos</li>
+                        <li>Retirar tu consentimiento en cualquier momento</li>
+                    </ul>
+                    <p>Para ejercer estos derechos, contáctanos a través de <a href="mailto:privacidad@solutionsmn.com">privacidad@solutionsmn.com</a>.</p>
+                    
+                    <h3>7. Menores de Edad</h3>
+                    <p>Nuestros servicios no están dirigidos a menores de 16 años. No recopilamos intencionadamente información personal de menores de 16 años.</p>
+                    
+                    <h3>8. Cambios en la Política</h3>
+                    <p>Podemos actualizar esta política periódicamente. Te recomendamos revisar esta página regularmente para estar informado sobre cualquier cambio. Cambios significativos se comunicarán a través de nuestro sitio web o por correo electrónico.</p>
+                    
+                    <h3>9. Contacto</h3>
+                    <p>Para preguntas sobre esta política de privacidad, contáctanos en:</p>
+                    <p>Solutions MN - Digital Studio<br>
+                    Email: <a href="mailto:privacidad@solutionsmn.com">privacidad@solutionsmn.com</a><br>
+                    Teléfono: +34 123 456 789</p>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> Volver a la página principal
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Solutions MN</h3>
+                    <p>Transformamos ideas en soluciones digitales innovadoras que impulsan tu negocio hacia el éxito.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Ejemplo, Ciudad</li>
+                        <li><i class="fas fa-phone"></i> Teléfono: +34 123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> Email: info@solutionsmn.tecj</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Solutions MN - Digital Studio. Todos los derechos reservados. | <a href="#">Términos y Condiciones</a> | <a href="#">Política de Privacidad</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    // Show selected tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Set current year in copyright
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

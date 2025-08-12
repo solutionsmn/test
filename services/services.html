@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios y Proyectos - Solutions MN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2628DD;
+            --secondary: #C419BE;
+            --primary-light: #4d4fe0;
+            --secondary-light: #d547d0;
+            --dark: #1a1c5e;
+            --light: #f5f5f7;
+            --gray: #6b6d8c;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(38, 40, 221, 0.2);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary-light));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.6rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            text-decoration: none;
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        /* Hero Services Section */
+        #services-hero {
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, rgba(38, 40, 221, 0.05), rgba(196, 25, 190, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            top: -300px;
+            right: -300px;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            bottom: -200px;
+            right: 100px;
+        }
+
+        /* Modern Services Layout */
+        #modern-services {
+            padding: 6rem 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(38, 40, 221, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(38, 40, 221, 0.05);
+        }
+
+        .service-row:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(38, 40, 221, 0.15);
+        }
+
+        .service-icon-container {
+            flex: 0 0 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(38, 40, 221, 0.1), rgba(196, 25, 190, 0.1));
+            position: relative;
+        }
+
+        .service-icon-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px dashed var(--primary);
+            animation: rotate 30s linear infinite;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            z-index: 2;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .service-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .alternate {
+            flex-direction: row-reverse;
+        }
+
+        /* Featured Projects Section - MODIFICADA */
+        #featured-projects {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(38, 40, 221, 0.03), rgba(196, 25, 190, 0.03));
+            position: relative;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(38, 40, 221, 0.08);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(38, 40, 221, 0.15);
+        }
+
+        .project-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+
+        .project-country {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .flag-icon {
+            font-size: 1.5rem;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .country-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .country-link:hover {
+            color: var(--secondary);
+        }
+
+        .country-link i {
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        #cta-services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .cta-shapes .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            background-color: var(--white);
+        }
+
+        .cta-shapes .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+        }
+
+        .cta-shapes .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            padding-left: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            animation: pulse 2s infinite;
+            transition: var(--transition);
+            text-decoration: none !important;
+            border: none !important;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-btn i {
+            color: var(--white);
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .service-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .service-content h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+
+            .service-actions {
+                justify-content: center;
+            }
+
+            .alternate {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                height: calc(100vh - 80px);
+                transition: var(--transition);
+                padding: 2rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <img src="../images/logoT.png" alt="">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html" class="active">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Services Section -->
+    <section id="services-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Soluciones Digitales <span>Innovadoras</span></h1>
+                <p>Impulsamos tu negocio con servicios digitales de vanguardia diseñados para maximizar tu presencia
+                    online y resultados comerciales.</p>
+                <div class="hero-buttons">
+                    <a href="#modern-services" class="btn btn-primary">Explorar Servicios</a>
+                    <a href="#featured-projects" class="btn btn-gradient">Ver Proyectos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Services Section -->
+    <section id="modern-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios Digitales</h2>
+                <p class="section-subtitle">Soluciones estratégicas diseñadas para potenciar tu presencia digital</p>
+            </div>
+
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-row fade-in">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diseño Web Profesional</h3>
+                        <p>Sitios web modernos y funcionales que reflejan tu marca y ofrecen una experiencia de usuario
+                            excepcional en todos los dispositivos.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Diseño responsive y adaptable</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Optimización SEO avanzada</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Experiencia de usuario intuitiva</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Integración con redes sociales</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="../cta/cta.html" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-row fade-in alternate">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tiendas Online</h3>
+                        <p>Plataformas de comercio electrónico completas que te permiten vender productos las 24 horas
+                            con funcionalidades avanzadas.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Catálogo de productos ilimitado</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Pasarelas de pago integradas</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Sistema de gestión de inventario</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Integración con sistemas de envíos</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="../cta/cta.html" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-row fade-in">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Landing Pages</h3>
+                        <p>Páginas de alta conversión diseñadas para maximizar el retorno de tus campañas de marketing y
+                            capturar leads cualificados.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Diseño orientado a conversiones</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Pruebas A/B integradas</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Integración con herramientas de marketing</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Análisis de rendimiento en tiempo real</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="../cta/cta.html" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-row fade-in alternate">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Automatización WhatsApp</h3>
+                        <p>Sistemas avanzados de automatización para WhatsApp Business que optimizan la comunicación con
+                            tus clientes.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Respuestas automáticas inteligentes</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Chatbots para atención al cliente</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Integración con CRM y sistemas internos</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Análisis de conversaciones</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="../cta/cta.html" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-row fade-in">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Análisis de Datos</h3>
+                        <p>Transformamos tus datos en información valiosa que impulsa la toma de decisiones estratégicas
+                            y optimiza tu negocio.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Implementación de Google Analytics 4</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Paneles de control personalizados</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Análisis predictivo y de tendencias</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Reportes automatizados</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="../cta/cta.html" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section - MODIFICADA 
+    <section id="featured-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proyectos Destacados</h2>
+                <p class="section-subtitle">Algunos de nuestros trabajos más recientes y exitosos</p>
+            </div>
+            
+            <div class="projects-container"> -->
+    <!-- Project 1 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Project">
+                        <div class="project-category">E-commerce</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tienda Online de Moda</h3>
+                        <p>Plataforma e-commerce para marca de moda con más de 500 productos, sistema de gestión de inventario y pasarelas de pago integradas.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇦🇷</span>
+                            <a href="https://www.tienda-moda-ar.com" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+    <!-- Project 2 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web App Project">
+                        <div class="project-category">Sistema Web</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Plataforma de Reservas</h3>
+                        <p>Sistema de reservas online para cadena de restaurantes con gestión de mesas, horarios y confirmación automática por WhatsApp.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇪🇸</span>
+                            <a href="https://www.reservas-restaurantes.es" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+    <!-- Project 3 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Website">
+                        <div class="project-category">Web Corporativa</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sitio Corporativo Fintech</h3>
+                        <p>Portal corporativo moderno para empresa fintech con integración de blog, recursos descargables y sección de prensa.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇲🇽</span>
+                            <a href="https://www.fintech-mx.com" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tourism Website">
+                        <div class="project-category">Turismo</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portal de Turismo</h3>
+                        <p>Sitio web para agencia de turismo con galería interactiva, sistema de reservas y recomendaciones personalizadas por destino.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇨🇱</span>
+                            <a href="https://www.turismo-chile.cl" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+    <!-- Project 5 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education Platform">
+                        <div class="project-category">Educación</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Plataforma Educativa</h3>
+                        <p>E-learning con cursos interactivos, seguimiento de progreso y certificados automáticos para institución educativa.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇨🇴</span>
+                            <a href="https://www.educacion-col.co" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+    <!-- Project 6 
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Health Platform">
+                        <div class="project-category">Salud</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Gestión Médica</h3>
+                        <p>Plataforma para clínica médica con agenda online, historias clínicas digitales y portal de pacientes.</p>
+                        <div class="project-country">
+                            <span class="flag-icon">🇺🇾</span>
+                            <a href="https://www.salud-uy.com" class="country-link" target="_blank">
+                                Visitar sitio <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta-services">
+        <div class="cta-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para Transformar tu Negocio?</h2>
+                <p>Nuestro equipo de expertos está preparado para crear soluciones personalizadas que impulsen tu
+                    presencia digital y generen resultados tangibles. Agenda una consulta gratuita hoy mismo.</p>
+                <a href="../cta/cta.html" class="btn cta-btn">Agenda tu Consulta Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Solutions MN</h3>
+                    <p>Transformamos ideas en soluciones digitales que impulsan negocios y crean oportunidades.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mnsolucionesdigitales/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ssolutionsmn/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/solutionsmn-digitalstudio"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/3512623733"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html">Servicios</a></li>
+                        <li><a href="../index.html">Proyectos</a></li>
+                        <li><a href="../index.html">Nosotros</a></li>
+                        <li><a href="../cta/cta.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Mariano Fragueiro 2100, Córdoba </p>
+                    <p><i class="fas fa-phone"></i> +54 351 726-6538</p>
+                    <p><i class="fas fa-envelope"></i> contact@solutionsmn.tech</p>
+                    <p><i class="fab fa-whatsapp"></i> +54 9 351 262-3733</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Solutions MN - Digital Studio. Todos los derechos reservados.</p>
+                <p><a href="../condition.html">Términos y Condiciones</a> | <a href="#">Política de Privacidad</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
